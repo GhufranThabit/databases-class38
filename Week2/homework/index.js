@@ -17,6 +17,10 @@ const database = [
   `CREATE DATABASE university;`,
   `USE university;`,
 ];
+const CheckResults = (error, results) => {
+  if (error) throw error;
+  console.table(results);
+};
 
 async function seedDatabase() {
   const connection = mysql.createConnection(CONNECTION_CONFIG);
@@ -35,11 +39,8 @@ async function seedDatabase() {
     const insertIntoTables = query3.map((query) => execQuery(query));
     await Promise.all(insertIntoTables);
 
-    const createJoins = query4.map((query) => execQuery(query));
-    await Promise.all(createJoins);
-
-    const createAFunctions = query5.map((query) => execQuery(query));
-    await Promise.all(createAFunctions);
+    query4.map((query) => execQuery(query, CheckResults));
+    query5.map((query) => execQuery(query, CheckResults));
 
     connection.end();
   } catch (err) {
