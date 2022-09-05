@@ -1,6 +1,6 @@
 const query5 = [
   //1-All research papers and the number of authors that wrote that paper.
-  `SELECT p.paper_id, COUNT(ap.author_id)
+  `SELECT p.paper_id,p.paper_title, COUNT(ap.author_id)
     FROM research_papers p
     LEFT JOIN author_papers ap ON ap.paper_id = p.paper_id
     GROUP BY ap.paper_id;`,

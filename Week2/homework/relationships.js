@@ -1,4 +1,6 @@
 const query2 = [
+  "SET FOREIGN_KEY_CHECKS=0;",
+
   //  CREATE_RESEARCH_PAPERS_TABLE
   `CREATE TABLE IF NOT EXISTS research_Papers (
     paper_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -15,19 +17,6 @@ const query2 = [
 ];
 
 const query3 = [
-  //  INSERT_INTO_MENTORS_TABLE
-  `INSERT INTO mentors(mentor_id,mentor_name)
-    VALUES
-    (1,"Ali"),
-    (2,"Rob"),
-    (3,"Harvey"),
-    (4,"Kelly"),
-    (5,"Nancy"),
-    (6,"Jo"),
-    (7,"Robert"),
-    (8,"Maria"),
-    (9,"Sally");`,
-
   // INSERT_INTO_AUTHORS_TABLE (15)
   `INSERT INTO authors(author_id,author_name,university,date_of_birth,h_index, gender,mentor_id)
     VALUES
@@ -85,13 +74,13 @@ const query3 = [
   `INSERT INTO author_Papers (id,author_id,paper_id )
     VALUES
     (1,2,3),
-    (2,8,1),
+    (2,8,3),
     (3,5,2),
     (4,7,14),
     (5,9,10),
     (6,15,11),
-    (7,1,30),
-    (8,6,4),
+    (7,1,11),
+    (8,6,11),
     (9,8,5),
     (10,10,6),
     (11,3,7),
@@ -99,5 +88,6 @@ const query3 = [
     (13,11,8),
     (14,12,9),
     (15,13,22);`,
+  "SET FOREIGN_KEY_CHECKS=1;",
 ];
 export { query2, query3 };
