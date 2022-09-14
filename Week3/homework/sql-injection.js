@@ -16,7 +16,7 @@ const CheckResults = (error, results) => {
 
 function getPopulation(Country, name, code, cb) {
   conn.query(
-    `SELECT Population FROM ${Country} WHERE Name = '${name}' and code = '${code}'`,
+    `SELECT Population FROM ${Country}WHERE Name = '${name}' and code = '${code}'`,
     function (err, result) {
       if (err) cb(err);
       if (result.length == 0) cb(new Error("Not found"));
@@ -46,10 +46,10 @@ conn.end();
   
  */
 // Rewriting the function so that it is no longer vulnerable to SQL injection
-function getPopulation(Country, name, code, cb) {
+function getPopulation(country, name, code, cb) {
   conn.query(
-    `SELECT Population FROM ${Country} WHERE Name = ? and code = ?`,
-    [name, code],
+    `SELECT Population FROM ? WHERE Name = ? and code = ?`,
+    [country, name, code],
     function (err, result) {
       if (err) cb(err);
       if (result.length == 0) cb(new Error("Not found"));
