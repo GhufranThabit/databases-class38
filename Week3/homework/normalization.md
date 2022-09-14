@@ -22,35 +22,25 @@
 
 ### Member
 
-| member_id(PK) | member_name | member_address |
-| ------------- | ----------- | -------------- |
+| member_id(PK) | member_name | member_address | dinner_id(FK) |
+| ------------- | ----------- | -------------- | ------------- |
 
 ### Dinner
 
-| dinner_id(PK) | dinner_date |
-| ------------- | ----------- |
-
-### Member'sDinner
-
-| id(PK) | member_id (FK) | dinner_id (FK) |
-| ------ | -------------- | -------------- |
+| dinner_id(PK) | dinner_date | venue_code(FK) |
+| ------------- | ----------- | -------------- |
 
 ### Venue
 
 | venue_code(PK) | venue_description |
 | -------------- | ----------------- |
 
-### Member'sVenue
-
-| id(PK) | member_id (FK) | venue_code(FK) |
-| ------ | -------------- | -------------- |
-
 ### Food
 
 | food_code(PK) | food_description |
 | ------------- | ---------------- |
 
-### Member'sFood
+### relational table dinner-Food
 
-| id(PK) | member_id (FK) | food_code(FK) |
+| id(PK) | dinner_id (FK) | food_code(FK) |
 | ------ | -------------- | ------------- |
